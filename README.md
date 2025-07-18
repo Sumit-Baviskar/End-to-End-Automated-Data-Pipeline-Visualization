@@ -78,6 +78,17 @@ int_patient_journey.sql (integrated table combining admissions and discharges)
 
           - fact_transfer_events
 
+## **Flowchart :**
+
+     Raw Layer (Admissions, Discharges, Transfers)
+         │
+         ▼
+     Transform in Python/DBT → Load to Snowflake
+         │
+         ├───> Dimension Tables: dim_patient, dim_bed, dim_department
+         │
+         └───> Fact Tables: fact_admission_events, fact_transfer_events
+
 
 ### 4️⃣ Visualization & Analytics Layer : Using AWS QuickSight or Power BI for Building Dashboard.
    - **Tools: AWS QuickSight or Power BI**
