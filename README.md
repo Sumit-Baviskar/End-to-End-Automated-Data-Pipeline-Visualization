@@ -33,20 +33,50 @@ Organizations often struggle with fragmented data sources, manual reporting proc
 
    - **Raw schema (HOSPITAL.RAW)**: Stores directly ingested tables from S3
 
-   - **Staging schema (HOSPITAL.STAGING)**: Cleaned and standardized tables
+     Example tables:
 
-   - **Analytics schema (HOSPITAL.ANALYTICS)**: Fact and dimension tables for reporting
+        - RAW_ADMISSIONS
+
+        - RAW_DISCHARGES
+
+        - RAW_BED_INVENTORY
+
+        - RAW_TRANSFERS
+
+   - Load files using Snowflake's COPY INTO command from S3.
+
+ 
 
 
  ### 3️⃣ **Transformation Layer :** Using dbt (Data Build Tool) tool.
 
    - Transform raw tables into clean staging models
 
-   - Create dimension tables (dim_patient, dim_department, dim_bed)
+       -  Example dbt models
 
-   - Create fact tables (fact_admission_events, fact_transfer_events)
+           - stg_admissions.sql
 
-   - Automation: dbt runs scheduled (or manual CLI runs)
+           - stg_discharges.sql
+
+           - stg_bed_inventory.sql
+
+int_patient_journey.sql (integrated table combining admissions and discharges)
+
+  - **Build Gold Layer (Analytics-ready) :**
+
+      - **Dimension tables**
+
+          - dim_patient
+
+          - dim_department
+
+          - dim_bed
+
+      - **Fact tables**
+
+          - fact_admission_events
+
+          - fact_transfer_events
 
 
 ### 4️⃣ Visualization & Analytics Layer : Using AWS QuickSight or Power BI for Building Dashboard.
