@@ -40,8 +40,6 @@ Organizations often struggle with fragmented data sources, manual reporting proc
 
  ### 3️⃣ **Transformation Layer :** Using dbt (Data Build Tool) tool.
 
-  **Steps :**
-
    - Transform raw tables into clean staging models
 
    - Create dimension tables (dim_patient, dim_department, dim_bed)
@@ -52,7 +50,8 @@ Organizations often struggle with fragmented data sources, manual reporting proc
 
 
 ### 4️⃣ Visualization & Analytics Layer : Using AWS QuickSight or Power BI for Building Dashboard.
-
+   - **Tools: AWS QuickSight or Power BI**
+     
 
 ## 💡 **What This Project Demonstrates**
 
@@ -80,7 +79,7 @@ Organizations often struggle with fragmented data sources, manual reporting proc
 
 - **Domain Flexibility:** While demonstrated using hospital data, the architecture supports multi-domain use cases.
 
----
+
 
 ## 💬 **Use Cases**
 
@@ -94,7 +93,7 @@ While this example focuses on healthcare operational analytics, the same approac
 
 - Manufacturing production and quality monitoring
 
----
+
 
 ## 👨‍💻 **Author**
 
