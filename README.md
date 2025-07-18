@@ -197,6 +197,60 @@ Organizations often struggle with fragmented data sources, manual reporting proc
 
    - You can run SQL-like queries on fact and dimension tables without moving data.
 
+### Athena SQL code:
+
+   - **Analyze how patients move between departments**
+
+         SELECT
+             t.patient_id,
+             t.admission_id,
+             t.transfer_time,
+             t.from_department,
+             t.to_department,
+             t.reason,
+             a.age,
+             a.gender,
+             a.primary_diagnosis
+         FROM stg_transfers AS t
+         JOIN stg_admissions AS a
+             ON t.patient_id = a.patient_id
+            AND t.admission_id = a.admission_id;
+
+   - **Analyze bed status over time, by department and type**
+
+         SELECT
+             b.bed_id,
+             b.department,
+             b.bed_type,
+             b.bed_status,
+             b.last_updated,
+             b.is_critical_care,
+             COUNT(*) OVER (PARTITION BY b.department, b.bed_status) AS beds_in_status
+         FROM stg_bed_inventory AS b;
+
+   - **Find patients admitted multiple times**
+
+         SELECT
+             patient_id,
+             COUNT(admission_id) AS admission_count,
+             MIN(admit_time) AS first_admit,
+            MAX(admit_time) AS last_admit
+         FROM stg_admissions
+         GROUP BY patient_id
+         HAVING COUNT(admission_id) > 1;
+
+   - **How many admissions per department, type, and average age**
+
+         SELECT
+             department,
+             admission_type,
+             COUNT(*) AS total_admissions,
+             AVG(age) AS avg_age,
+             COUNT(DISTINCT bed_id) AS unique_beds_used
+         FROM stg_admissions
+         GROUP BY department, admission_type;
+
+
 
 ### 7️⃣ **Athena → QuickSight :**
 
