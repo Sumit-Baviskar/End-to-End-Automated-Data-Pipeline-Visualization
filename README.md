@@ -1,4 +1,4 @@
-# **End to End Automated Data Pipeline Visualization :**
+# **End to End Automated Data Pipeline and Visualization :**
 
 Welcome! This repository showcases a comprehensive, domain-agnostic data engineering and analytics project designed to demonstrate the power of automation, modern data pipelines, and real-time business intelligence.
 
