@@ -96,13 +96,46 @@ Organizations often struggle with fragmented data sources, manual reporting proc
 
        - dim_bed
 
-   - ** Fact tables**
+   - **Fact tables**
 
        - fact_admission_events
 
        - fact_transfer_events
 
    - These become your gold layer tables (cleaned and ready for analytics).
+
+
+### 📁 **FOLDER STRUCTURE (DBT PROJECT) :**
+
+    hospital_data_pipeline/
+    │
+    ├── dbt_project.yml               # Project config
+    ├── packages.yml                  # Optional packages
+    ├── README.md                     # Project readme
+    │
+    ├── models/                       # All DBT models go here
+        ├── staging/                  # Stage tables (from raw Snowflake schema)
+        │   ├── stg_admissions.sql
+        │   ├── stg_beds.sql
+        │   └── stg_transfers.sql
+        │
+        ├── analytics/                    # Final models (fact + dim)
+            ├── dim/                  
+            │   ├── dim_patients.sql
+            │   ├── dim_beds.sql
+            │   └── dim_departments.sql
+            │
+            └── fact/
+              ├── fact_admissions.sql
+              ├── fact_transfer_events.sql
+              └── fact_bed_occupancy.sql
+        
+ 
+
+
+
+
+
 
 ### 4️⃣ **Snowflake → S3 (Export for sharing) :**
 
