@@ -68,6 +68,68 @@ Organizations often struggle with fragmented data sources, manual reporting proc
 ✅ Scalable and reusable architecture that can be extended to any domain or dataset
 
 
+## **Architecture Flow (Step-by-Step) :**
+
+### 1️⃣ **S3 → Snowflake (Initial load) :**
+
+   - Data in S3: Raw CSVs (admissions, discharges, transfers, bed inventory).
+
+   - Action: Use Snowflake external stage and COPY INTO to load data into Snowflake raw tables.
+
+###  2️⃣ **Snowflake → DBT :**
+    
+   - In Snowflake: You have raw tables (staging layer).
+
+   - DBT connects to Snowflake and transforms raw data → creates cleaned, modeled tables (like dimension tables, fact tables).
+
+###  3️⃣ **DBT → Snowflake (Refined layer) :**
+
+   - After DBT runs, modeled (transformed) tables and views are materialized in Snowflake.
+
+   ### ✅  Tables included
+
+   - **Dimension tables**
+
+       - dim_patient
+
+       - dim_department
+
+       - dim_bed
+
+   - ** Fact tables**
+
+       - fact_admission_events
+
+       - fact_transfer_events
+
+   - These become your gold layer tables (cleaned and ready for analytics).
+
+### 4️⃣ **Snowflake → S3 (Export for sharing) :**
+
+   - Export final fact and dimension tables back to S3 using COPY INTO and external stages.
+
+   - Purpose: Archive, share with data lake users, or downstream tools.
+
+
+### 5️⃣ **S3 → Glue :**
+
+   - AWS Glue crawlers scan exported CSV files in S3, create Glue catalog tables.
+
+   - These are now structured and queryable in AWS.
+
+### 6️⃣ **Glue → Athena :**
+
+   - Athena queries the data directly from S3 (via Glue catalog).
+
+   - You can run SQL-like queries on fact and dimension tables without moving data.
+
+
+### 7️⃣ **Athena → QuickSight :**
+
+   - Connect QuickSight to Athena as the data source.
+
+   - Build interactive dashboards on top of the data (example: bed utilization, admissions trends, transfers).
+
 
 ## 🌟 **Key Highlights**
 
