@@ -43,7 +43,7 @@ GRANT ALL ON FUTURE TABLES IN SCHEMA HOSPITAL.RAW TO ROLE TRANSFORM;
 
 -- 🛢️ CREATE AN EXTERNAL STAGE POINTING TO S3 BUCKET FOR LOADING DATA
 CREATE OR REPLACE STAGE hospital_stage
-  URL = 's3://12-7-2025--hospital-data'
+  URL = 's3://your-bucket-name'
   CREDENTIALS = (
     AWS_KEY_ID = '********************',
     AWS_SECRET_KEY = '***************'
