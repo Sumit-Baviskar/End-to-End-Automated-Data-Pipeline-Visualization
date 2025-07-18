@@ -60,7 +60,7 @@ Organizations often struggle with fragmented data sources, manual reporting proc
 
            - stg_bed_inventory.sql
 
-int_patient_journey.sql (integrated table combining admissions and discharges)
+           - int_patient_journey.sql (integrated table combining admissions and discharges)
 
   - **Build Gold Layer (Analytics-ready) :**
 
