@@ -127,7 +127,7 @@ Organizations often struggle with fragmented data sources, manual reporting proc
 
    - After DBT runs, modeled (transformed) tables and views are materialized in Snowflake.
 
-   ### ✅  Tables included
+   ###  Tables included
 
    - **Dimension tables**
 
