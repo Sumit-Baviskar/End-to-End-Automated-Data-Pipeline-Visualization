@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw
+    database: HOSPITAL
+    schema: RAW
+    tables:
+      - name: raw_admissions
+      - name: raw_discharges
+      - name: raw_transfers
+      - name: raw_bed_inventory

@@ -1,0 +1,168 @@
+version: 2
+
+sources:
+  - name: raw_staging
+    database: HOSPITAL
+    schema: RAW
+    description: "Raw source tables ingested into Snowflake from S3."
+    tables:
+      - name: raw_admissions
+        description: "Raw admission records for patients."
+        columns:
+          - name: patient_id
+            description: "Unique identifier for the patient."
+          - name: admission_id
+            description: "Unique admission identifier."
+          - name: admit_time
+            description: "Timestamp of patient admission."
+          - name: admission_type
+            description: "Type of admission."
+          - name: primary_diagnosis
+            description: "Primary diagnosis upon admission."
+          - name: department
+            description: "Department to which the patient was admitted."
+          - name: bed_id
+            description: "ID of the bed assigned to the patient."
+          - name: gender
+            description: "Gender of the patient."
+          - name: age
+            description: "Age of the patient at admission."
+          - name: insurance_type
+            description: "Patient’s insurance coverage."
+
+      - name: raw_discharges
+        description: "Patient discharge data including outcomes and destination."
+        columns:
+          - name: patient_id
+            description: "Unique identifier for the patient."
+          - name: admission_id
+            description: "Associated admission ID."
+          - name: discharge_time
+            description: "Time of patient discharge."
+          - name: discharge_status
+            description: "Discharge outcome (e.g., recovered, deceased)."
+          - name: discharge_destination
+            description: "Destination after discharge."
+          - name: length_of_stay
+            description: "Total length of stay in days."
+
+      - name: raw_transfers
+        description: "Details of patient transfers between departments."
+        columns:
+          - name: patient_id
+            description: "Unique identifier for the patient."
+          - name: admission_id
+            description: "Associated admission ID."
+          - name: transfer_time
+            description: "Time of transfer."
+          - name: from_department
+            description: "Source department."
+          - name: to_department
+            description: "Destination department."
+          - name: reason
+            description: "Reason for transfer."
+
+      - name: raw_bed_inventory
+        description: "Inventory of beds across departments."
+        columns:
+          - name: bed_id
+            description: "Unique bed identifier."
+          - name: bed_type
+            description: "Type of bed (e.g., ICU, general ward)."
+          - name: room_number
+            description: "Room where bed is located."
+          - name: is_critical_care
+            description: "True if bed is for critical care."
+          - name: department
+            description: "Associated department."
+
+models:
+  - name: dim_bed
+    description: "Dimension table containing details of hospital beds."
+    columns:
+      - name: bed_id
+        description: "Unique identifier for the hospital bed."
+        tests:
+          - not_null
+          - unique
+      - name: bed_type
+        description: "Type of bed (e.g., General, ICU, Isolation)."
+      - name: room_number
+        description: "Room number where the bed is located."
+      - name: is_critical_care
+        description: "Indicates whether the bed is designated for critical care (true/false)."
+      - name: department
+        description: "Department to which the bed belongs."
+
+  - name: dim_department
+    description: "Dimension table listing all unique hospital departments."
+    columns:
+      - name: department
+        description: "Name of the hospital department."
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_patients
+    description: "Dimension table storing patient demographic and insurance information."
+    columns:
+      - name: patient_id
+        description: "Unique identifier for the patient."
+        tests:
+          - not_null
+          - unique
+      - name: gender
+        description: "Gender of the patient."
+      - name: age
+        description: "Age of the patient at the time of admission."
+      - name: insurance_type
+        description: "Type of insurance coverage the patient holds."
+
+  - name: fact_admission_events
+    description: "Fact table capturing patient admissions with discharge details."
+    columns:
+      - name: patient_id
+        description: "Foreign key to dim_patients."
+        tests:
+          - not_null
+      - name: admission_id
+        description: "Unique identifier for the admission event."
+        tests:
+          - not_null
+          - unique
+      - name: bed_id
+        description: "Foreign key to dim_bed."
+      - name: department
+        description: "Department where the patient was admitted."
+      - name: admission_type
+        description: "Type of admission such as emergency, routine, etc."
+      - name: primary_diagnosis
+        description: "Primary diagnosis code or description on admission."
+      - name: admit_time
+        description: "Datetime when the patient was admitted."
+      - name: discharge_time
+        description: "Datetime when the patient was discharged."
+      - name: discharge_status
+        description: "Status at the time of discharge (e.g., recovered, deceased)."
+      - name: length_of_stay
+        description: "Length of hospital stay in days."
+      - name: discharge_destination
+        description: "Destination after discharge (e.g., home, rehab center)."
+
+  - name: fact_transfer_events
+    description: "Fact table capturing all intra-hospital patient transfers."
+    columns:
+      - name: patient_id
+        description: "Foreign key to dim_patients."
+        tests:
+          - not_null
+      - name: admission_id
+        description: "Foreign key to fact_admission_events."
+      - name: transfer_time
+        description: "Datetime of the transfer."
+      - name: from_department
+        description: "Department from which the patient was transferred."
+      - name: to_department
+        description: "Department to which the patient was transferred."
+      - name: reason
+        description: "Reason for the transfer (e.g., specialist required, critical care needed)."
