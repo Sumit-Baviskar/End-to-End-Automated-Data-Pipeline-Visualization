@@ -307,9 +307,12 @@ While this example focuses on healthcare operational analytics, the same approac
 
 ## 👨‍💻 **Author**
 
-**Sumit Baviskar**  
-📧 [Gmail](https://mail.google.com/mail/?view=cm&to=st.baviskar43@gmail.com)
+### **Sumit Baviskar**  
 
-🔗 [LinkedIn](https://linkedin.com/in/your-profile)  
+   🔗 [LinkedIn](https://www.linkedin.com/in/sumit-baviskar/)  
 
-🔗 [Portfolio/GitHub](https://github.com/sumitbaviskar)
+   🔗 [Portfolio/GitHub](https://nice-web-16a.notion.site/Hello-I-m-Sumit-Baviskar-18e7130b12678024b30fc011c22427b7)
+
+   📧 [Gmail](https://mail.google.com/mail/?view=cm&to=st.baviskar43@gmail.com)
+
+
