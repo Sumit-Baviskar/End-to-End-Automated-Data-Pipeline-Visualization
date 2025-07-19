@@ -308,6 +308,6 @@ While this example focuses on healthcare operational analytics, the same approac
 ## 👨‍💻 **Author**
 
 **Sumit Baviskar**  
-📧 [Your Email]  
+📧 [Gmail](https://mail.google.com/mail/?view=cm&to=st.baviskar43@gmail.com)
 🔗 [LinkedIn](https://linkedin.com/in/your-profile)  
 🔗 [Portfolio/GitHub](https://github.com/sumitbaviskar)
