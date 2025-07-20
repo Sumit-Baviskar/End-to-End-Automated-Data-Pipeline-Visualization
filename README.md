@@ -179,8 +179,9 @@ Organizations often struggle with fragmented data sources, manual reporting proc
     ├── models/                       # All DBT models go here
         ├── staging/                  # Stage tables (from raw Snowflake schema)
         │   ├── stg_admissions.sql
-        │   ├── stg_beds.sql
+        │   ├── stg_bed_inventory.sql
         │   └── stg_transfers.sql
+        │   └── stg_discharges.sql
         │
         ├── analytics/                    # Final models (fact + dim)
             ├── dim/                  
