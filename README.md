@@ -24,6 +24,9 @@ Organizations often struggle with fragmented data sources, manual reporting proc
 ## **💬 Architecture Layers :**
 
 
+![Image](https://github.com/user-attachments/assets/07ccba14-7c11-480b-a3f5-83d9959bac88)
+
+
 ### 1️⃣ **Data Ingestion Layer** : Central raw data repository before processing.
   
    - Storage: Amazon S3 bucket (e.g., s3://12-7-2025--hospital-data)
@@ -311,7 +314,9 @@ While this example focuses on healthcare operational analytics, the same approac
 
    🔗 [LinkedIn](https://www.linkedin.com/in/sumit-baviskar/)  
 
-   🔗 [Portfolio/GitHub](https://nice-web-16a.notion.site/Hello-I-m-Sumit-Baviskar-18e7130b12678024b30fc011c22427b7)
+   🔗 [Portfolio](https://nice-web-16a.notion.site/Hello-I-m-Sumit-Baviskar-18e7130b12678024b30fc011c22427b7)
+
+   🔗 [GitHub](https://github.com/Sumit-Baviskar)
 
    📧 [Gmail](https://mail.google.com/mail/?view=cm&to=st.baviskar43@gmail.com)
 
