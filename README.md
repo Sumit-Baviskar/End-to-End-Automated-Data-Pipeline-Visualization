@@ -198,6 +198,14 @@ Organizations often struggle with fragmented data sources, manual reporting proc
    - Purpose: Archive, share with data lake users, or downstream tools.
 
    - [SQL code for dbt fact and dim table ](https://github.com/Sumit-Baviskar/End-to-End-Automated-Data-Pipeline-Visualization/tree/main/models/analytics)
+
+     - S3 Bucket sample photo
+    
+<img width="1434" height="785" alt="Image" src="https://github.com/user-attachments/assets/f50eb235-3c0b-4a91-b8da-cbf3ffcba19c" />
+
+   
+
+
    
 ### 5️⃣ **S3 → Glue :**
 
