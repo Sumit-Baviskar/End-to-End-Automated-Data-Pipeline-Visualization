@@ -33,6 +33,8 @@ Organizations often struggle with fragmented data sources, manual reporting proc
   
    - Storage: Amazon S3 bucket (e.g., s3://12-7-2025--hospital-data)
 
+   - Snowflake SQL Code to access the AWS S3 Bucket and load into Snowflake Platform using Stage
+   
 
 ### 2️⃣ **Data Warehouse Layer** : Using Snowflake Platform.
 
@@ -50,9 +52,6 @@ Organizations often struggle with fragmented data sources, manual reporting proc
 
    - Load files using Snowflake's COPY INTO command from S3.
 
- 
-
-
  ### 3️⃣ **Transformation Layer :** Using dbt (Data Build Tool) tool.
 
    - Transform raw tables into clean staging models
@@ -66,6 +65,9 @@ Organizations often struggle with fragmented data sources, manual reporting proc
            - stg_bed_inventory.sql
 
            - int_patient_journey.sql (integrated table combining admissions and discharges)
+        
+
+ 
 
   - **Build Gold Layer (Analytics-ready) :**
 
@@ -93,6 +95,7 @@ Organizations often struggle with fragmented data sources, manual reporting proc
          ├───> Dimension Tables: dim_patient, dim_bed, dim_department
          │
          └───> Fact Tables: fact_admission_events, fact_transfer_events
+
 
 
 ### 4️⃣ Visualization & Analytics Layer : Using AWS QuickSight or Power BI for Building Dashboard.
@@ -144,11 +147,15 @@ Organizations often struggle with fragmented data sources, manual reporting proc
 
    - Action: Use Snowflake external stage and COPY INTO to load data into Snowflake raw tables.
 
+   - Click Here for code :  [Importing Data Code link ](https://github.com/Sumit-Baviskar/End-to-End-Automated-Data-Pipeline-Visualization/blob/main/Snowflake%20Code%20-%20Importing%20Data%20to%20S3%20.txt)
+
 ###  2️⃣ **Snowflake → DBT :**
     
    - In Snowflake: You have raw tables (staging layer).
 
    - DBT connects to Snowflake and transforms raw data → creates cleaned, modeled tables (like dimension tables, fact tables).
+
+   - [SQL code for dbt staging area  ](https://github.com/Sumit-Baviskar/End-to-End-Automated-Data-Pipeline-Visualization/tree/main/models/staging)
 
 ###  3️⃣ **DBT → Snowflake (Refined layer) :**
 
@@ -212,7 +219,8 @@ Organizations often struggle with fragmented data sources, manual reporting proc
 
    - Purpose: Archive, share with data lake users, or downstream tools.
 
-
+   - [SQL code for dbt fact and dim table ](https://github.com/Sumit-Baviskar/End-to-End-Automated-Data-Pipeline-Visualization/tree/main/models/analytics)
+   
 ### 5️⃣ **S3 → Glue :**
 
    - AWS Glue crawlers scan exported CSV files in S3, create Glue catalog tables.
