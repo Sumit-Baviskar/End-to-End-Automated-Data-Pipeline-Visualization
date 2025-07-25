@@ -101,28 +101,6 @@ Organizations often struggle with fragmented data sources, manual reporting proc
 ### 4️⃣ Visualization & Analytics Layer : Using AWS QuickSight or Power BI for Building Dashboard.
    - **Tools: AWS QuickSight or Power BI**
      
-### **Dashboard Screenshots :**
-
-### **Executive Overview**
-
-![Image](https://github.com/user-attachments/assets/9e582616-672c-4e4d-8091-6716077ccb4a)
-
-### **Departmental Overview**
-
-
-![Image](https://github.com/user-attachments/assets/ffa83395-ea00-47e6-8c03-0e8e69721055)
-
-
-### **Demographic Overview**
-
-![Image](https://github.com/user-attachments/assets/1bc2abd0-2c03-43fc-9515-90f9f850ea06)
-
-
-## **Full Dashboard :**
-
-
-![Image](https://github.com/user-attachments/assets/675d610d-7009-4089-b8bc-c215cfcc8ffc)
-
 
 ## 💡 **What This Project Demonstrates**
 
@@ -293,6 +271,30 @@ Organizations often struggle with fragmented data sources, manual reporting proc
    - Connect QuickSight to Athena as the data source.
 
    - Build interactive dashboards on top of the data (example: bed utilization, admissions trends, transfers).
+
+
+### **Dashboard Screenshots :**
+
+### **Executive Overview**
+
+![Image](https://github.com/user-attachments/assets/9e582616-672c-4e4d-8091-6716077ccb4a)
+
+### **Departmental Overview**
+
+
+![Image](https://github.com/user-attachments/assets/ffa83395-ea00-47e6-8c03-0e8e69721055)
+
+
+### **Demographic Overview**
+
+![Image](https://github.com/user-attachments/assets/1bc2abd0-2c03-43fc-9515-90f9f850ea06)
+
+
+## **Full Dashboard :**
+
+
+![Image](https://github.com/user-attachments/assets/675d610d-7009-4089-b8bc-c215cfcc8ffc)
+
 
 
 
