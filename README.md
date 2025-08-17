@@ -125,7 +125,7 @@ Organizations often struggle with fragmented data sources, manual reporting proc
 
    - Action: Use Snowflake external stage and COPY INTO to load data into Snowflake raw tables.
 
-   - Click Here for code :  [Importing Data Code link ](https://github.com/Sumit-Baviskar/End-to-End-Automated-Data-Pipeline-Visualization/blob/main/Snowflake%20Code%20-%20Importing%20Data%20to%20S3%20.txt)
+   - Click Here for code :  [Importing Data Code link ](https://github.com/Sumit-Baviskar/End-to-End-Automated-Data-Pipeline-Visualization/blob/main/Snowflake%20Code/Snowflake%20Code%20-%20Importing%20Data%20to%20S3%20.txt)
 
 ###  2️⃣ **Snowflake → DBT :**
     
